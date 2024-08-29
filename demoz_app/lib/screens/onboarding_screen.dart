@@ -8,15 +8,18 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AppTheme theme = AppTheme.of(context);
     return Scaffold(
-      body: Container(
-        color: theme.secondary,
-        child: Center(
-          child: Image.asset(
-            "assets/images/megaphone.png",
-            height: 100,
-            width: 100,
-          ),
-        ),
+      backgroundColor: theme.secondary,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+              child: Image.asset(
+            "assets/images/logo.png",
+            height: 185,
+            width: 161,
+          )),
+          AuthBox()
+        ],
       ),
     );
   }

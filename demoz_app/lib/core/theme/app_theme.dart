@@ -62,7 +62,7 @@ class LightModeTheme extends AppTheme {
   @override
   Color get alternate => const Color(0xFFE0E3E7);
   @override
-  Color get primaryText => const Color(0xFF333647);
+  Color get primaryText => const Color(0xFF101317);
   @override
   Color get secondaryText => const Color(0xFF2ABAFF);
   @override
