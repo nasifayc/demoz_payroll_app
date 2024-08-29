@@ -10,6 +10,5 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // String? userId = await LoginManager.getUser();
   runApp(const App());
 }
