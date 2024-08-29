@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "368190423136",
+    "project_id": "demoz-9ac38",
+    "storage_bucket": "demoz-9ac38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368190423136:android:88149af7f8150a26160305",
+        "android_client_info": {
+          "package_name": "com.example.demoz_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw8ERn5my0J57vuvf0E8gz2T6OFrNjDeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
