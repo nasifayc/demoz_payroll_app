@@ -4,6 +4,7 @@ import 'package:demoz_app/screens/landing_page.dart';
 import 'package:demoz_app/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class AppNavigator extends StatelessWidget {
   const AppNavigator({super.key});
@@ -20,6 +21,7 @@ class AppNavigator extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        FlutterNativeSplash.remove();
         if (state is Authenticated) {
           return const LandingPage();
         }

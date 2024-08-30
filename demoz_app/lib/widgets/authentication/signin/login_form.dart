@@ -81,7 +81,7 @@ class _LoginFormState extends State<LoginForm> {
                   },
                   child: state is Authenticating
                       ? CircularProgressIndicator(
-                          color: theme.primary,
+                          color: theme.secondary,
                         )
                       : Text(
                           "Login",
@@ -114,7 +114,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 child: state is AuthenticatingGoogle
                     ? CircularProgressIndicator(
-                        color: theme.secondary,
+                        color: theme.primary,
                       )
                     : Text(
                         "Google",

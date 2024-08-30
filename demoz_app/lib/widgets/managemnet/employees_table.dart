@@ -28,42 +28,48 @@ class _EmployeesTableState extends State<EmployeesTable> {
           if (company.employees.isEmpty) {
             return Center(
               child: Text(
-                "you haven't registered any employee yet.",
+                "You haven't registered any employee yet.",
                 style: theme.typography.titleMedium,
               ),
             );
           }
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: DataTable(
-              columns: [
-                DataColumn(
-                    label: Text(
-                  'Employees',
-                  style: theme.typography.displayMedium,
-                )),
-                DataColumn(
-                    label: Text('Net Salary',
-                        style: theme.typography.displayMedium)),
-                DataColumn(
-                    label: Text('Taxable Earnings',
-                        style: theme.typography.displayMedium)),
-                DataColumn(
-                    label: Text('Incoming Tax',
-                        style: theme.typography.displayMedium)),
-              ],
-              rows: company.employees.map((employee) {
-                return DataRow(cells: [
-                  DataCell(Text(employee.name,
-                      style: theme.typography.displaySmall)),
-                  DataCell(Text(employee.grossSalary.toString(),
-                      style: theme.typography.displaySmall)),
-                  DataCell(Text(employee.taxableEarnings.toString(),
-                      style: theme.typography.displaySmall)),
-                  DataCell(Text('${employee.grossSalary * 0.15}',
-                      style: theme.typography.displaySmall)),
-                ]);
-              }).toList(),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: DataTable(
+                columns: [
+                  DataColumn(
+                      label: Text(
+                    'Employees',
+                    style: theme.typography.displayMedium,
+                  )),
+                  DataColumn(
+                      label: Text('Net Salary',
+                          style: theme.typography.displayMedium)),
+                  DataColumn(
+                      label: Text('Taxable Earnings',
+                          style: theme.typography.displayMedium)),
+                  DataColumn(
+                      label: Text('Incoming Tax',
+                          style: theme.typography.displayMedium)),
+                ],
+                rows: company.employees.map((employee) {
+                  return DataRow(
+                      color: MaterialStateProperty.all(
+                          theme.primary.withOpacity(0.1)),
+                      cells: [
+                        DataCell(Text(employee.name,
+                            style: theme.typography.displaySmall)),
+                        DataCell(Text(employee.grossSalary.toString(),
+                            style: theme.typography.displaySmall)),
+                        DataCell(Text(employee.taxableEarnings.toString(),
+                            style: theme.typography.displaySmall)),
+                        DataCell(Text('${employee.grossSalary * 0.15}',
+                            style: theme.typography.displaySmall)),
+                      ]);
+                }).toList(),
+              ),
             ),
           );
         } else if (snapshot.connectionState == ConnectionState.waiting) {

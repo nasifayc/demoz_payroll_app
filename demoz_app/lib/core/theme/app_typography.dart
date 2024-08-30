@@ -79,7 +79,7 @@ class ThemeTypography extends AppTypography {
         fontFamily: fontFamily,
         color: theme.info,
         fontWeight: FontWeight.bold,
-        fontSize: 16,
+        fontSize: 20,
       );
   @override
   TextStyle get headlineMedium2 => TextStyle(
