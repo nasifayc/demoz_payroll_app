@@ -6,6 +6,7 @@ class CompanyModel extends Equatable {
   final String id;
   final String email;
   String? password;
+  String? photo;
   final String companyName;
   final String address;
   final String phoneNumber;
@@ -19,6 +20,7 @@ class CompanyModel extends Equatable {
       {required this.id,
       required this.email,
       this.password,
+      this.photo,
       required this.companyName,
       required this.address,
       required this.phoneNumber,
@@ -32,6 +34,7 @@ class CompanyModel extends Equatable {
     return CompanyModel(
       id: json['id'],
       email: json['email'],
+      photo: json['photo'],
       companyName: json['companyName'],
       address: json['address'],
       phoneNumber: json['phoneNumber'],
@@ -39,9 +42,9 @@ class CompanyModel extends Equatable {
       numberOfEmployees: json['numberOfEmployees'],
       companyBank: json['companyBank'],
       bankAccountNumber: json['bankAccountNumber'],
-      employees:
-          json['employees']?.map((e) => EmployeeModel.fromJson(e)).toList() ??
-              [],
+      employees: (json['employees'] as List<dynamic>)
+          .map((e) => EmployeeModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 
@@ -49,6 +52,7 @@ class CompanyModel extends Equatable {
     return {
       'id': id,
       'email': email,
+      'photo': photo,
       'companyName': companyName,
       'address': address,
       'phoneNumber': phoneNumber,
@@ -64,6 +68,7 @@ class CompanyModel extends Equatable {
   List<Object?> get props => [
         id,
         email,
+        photo,
         password,
         companyName,
         address,

@@ -1,12 +1,9 @@
-import 'package:demoz_app/controllers/auth/auth_cubit.dart';
-import 'package:demoz_app/controllers/auth/auth_state.dart';
 import 'package:demoz_app/core/theme/app_theme.dart';
 import 'package:demoz_app/screens/layouts/company_registration_screen.dart';
 import 'package:demoz_app/widgets/common/custome_form_components.dart';
 import 'package:demoz_app/widgets/common/primary_button.dart';
 import 'package:demoz_app/widgets/common/secondary_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -82,28 +79,20 @@ class _SignUpFormState extends State<SignUpForm> {
           const SizedBox(
             height: 30,
           ),
-          BlocBuilder<AuthCubit, AuthState>(
-            builder: (context, state) {
-              return PrimaryButton(
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => CompanyRegistrationScreen(
-                            email: _emailController.text.trim(),
-                            password: _passwordController.text.trim()),
-                      ));
-                    }
-                  },
-                  child: state is Authenticating
-                      ? CircularProgressIndicator(
-                          color: theme.primary,
-                        )
-                      : Text(
-                          "Sign Up",
-                          style: theme.typography.labelMedium2,
-                        ));
-            },
-          ),
+          PrimaryButton(
+              onPressed: () {
+                if (_formKey.currentState?.validate() ?? false) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => CompanyRegistrationScreen(
+                        email: _emailController.text.trim(),
+                        password: _passwordController.text.trim()),
+                  ));
+                }
+              },
+              child: Text(
+                "Sign Up",
+                style: theme.typography.labelMedium2,
+              )),
           const SizedBox(
             height: 20,
           ),
@@ -116,30 +105,22 @@ class _SignUpFormState extends State<SignUpForm> {
           const SizedBox(
             height: 20,
           ),
-          BlocBuilder<AuthCubit, AuthState>(
-            builder: (context, state) {
-              return SecondaryButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CompanyRegistrationScreen(
-                        email: null, password: null),
-                  ));
-                },
-                prefix: Image.asset(
-                  'assets/images/google.png',
-                  height: 25,
-                  width: 25,
-                ),
-                child: state is AuthenticatingGoogle
-                    ? CircularProgressIndicator(
-                        color: theme.secondary,
-                      )
-                    : Text(
-                        "Google",
-                        style: theme.typography.labelMedium,
-                      ),
-              );
+          SecondaryButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const CompanyRegistrationScreen(
+                    email: null, password: null),
+              ));
             },
+            prefix: Image.asset(
+              'assets/images/google.png',
+              height: 25,
+              width: 25,
+            ),
+            child: Text(
+              "Google",
+              style: theme.typography.labelMedium,
+            ),
           ),
           const SizedBox(
             height: 40,

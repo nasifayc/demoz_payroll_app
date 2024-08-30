@@ -48,14 +48,14 @@ class ThemeTypography extends AppTypography {
   TextStyle get displayMedium => TextStyle(
         fontFamily: fontFamily,
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        fontSize: 22,
       );
   @override
   TextStyle get displaySmall => TextStyle(
         fontFamily: fontFamily,
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 18,
       );
   @override
@@ -138,7 +138,7 @@ class ThemeTypography extends AppTypography {
   TextStyle get titleSmall => TextStyle(
       fontFamily: fontFamily,
       color: theme.accent2,
-      letterSpacing: 1.2,
+      letterSpacing: 1,
       height: 1.5,
       fontWeight: FontWeight.normal,
       fontSize: 14,
@@ -168,8 +168,8 @@ class ThemeTypography extends AppTypography {
   @override
   TextStyle get labelSmall => TextStyle(
         fontFamily: fontFamily,
-        color: theme.primary,
-        fontWeight: FontWeight.bold,
+        color: theme.info,
+        fontWeight: FontWeight.normal,
         fontSize: 14,
       );
   @override

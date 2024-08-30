@@ -3,6 +3,7 @@ import 'package:demoz_app/core/app_navigator.dart';
 import 'package:demoz_app/core/theme/app_theme.dart';
 import 'package:demoz_app/models/company_model.dart';
 import 'package:demoz_app/screens/layouts/login_screen.dart';
+import 'package:demoz_app/screens/layouts/register_employee.dart';
 import 'package:demoz_app/screens/layouts/sign_up_screen.dart';
 import 'package:demoz_app/services/authentication/auth_services.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,8 @@ class _AppState extends State<App> {
         title: 'Demoz',
         routes: {
           '/sign_up': (context) => const SignUpScreen(),
-          '/login': (context) => const LoginScreen()
+          '/login': (context) => const LoginScreen(),
+          '/register_employee': (context) => const RegisterEmployee()
         },
         theme: LightModeTheme().themeData,
         home: const AppNavigator());

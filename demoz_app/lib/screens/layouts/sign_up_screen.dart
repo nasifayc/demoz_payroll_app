@@ -18,42 +18,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     // AppTheme theme = AppTheme.of(context);
     return Scaffold(
-      body: BlocListener<AuthCubit, AuthState>(
-        listener: (context, state) {
-          if (state is Authenticated) {
-            Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                builder: (context) => const LandingPage(),
-              ),
-              (Route<dynamic> route) => false,
-            );
-          } else if (state is AuthFailure) {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(state.message)));
-          }
-        },
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    'assets/images/logo2.png',
-                    height: 73,
-                    width: 69,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const WelcomeCard(),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const SignUpForm()
-                ],
-              ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  'assets/images/logo2.png',
+                  height: 73,
+                  width: 69,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const WelcomeCard(),
+                const SizedBox(
+                  height: 30,
+                ),
+                const SignUpForm()
+              ],
             ),
           ),
         ),

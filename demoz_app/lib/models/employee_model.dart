@@ -2,16 +2,16 @@ import 'package:equatable/equatable.dart';
 
 class EmployeeModel extends Equatable {
   final String name;
-  final String address;
+  final String email;
   final String phoneNumber;
   final String tinNumber;
-  final String grossSalary;
-  final String taxableEarnings;
+  final int grossSalary;
+  final int taxableEarnings;
   final String startingDateOfSalary;
 
   const EmployeeModel({
     required this.name,
-    required this.address,
+    required this.email,
     required this.phoneNumber,
     required this.tinNumber,
     required this.grossSalary,
@@ -22,7 +22,7 @@ class EmployeeModel extends Equatable {
   factory EmployeeModel.fromJson(Map<String, dynamic> json) {
     return EmployeeModel(
       name: json['name'],
-      address: json['address'],
+      email: json['email'],
       phoneNumber: json['phoneNumber'],
       tinNumber: json['tinNumber'],
       grossSalary: json['grossSalary'],
@@ -34,7 +34,7 @@ class EmployeeModel extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
-      'address': address,
+      'email': email,
       'phoneNumber': phoneNumber,
       'tinNumber': tinNumber,
       'grossSalary': grossSalary,
@@ -46,7 +46,7 @@ class EmployeeModel extends Equatable {
   @override
   List<Object?> get props => [
         name,
-        address,
+        email,
         phoneNumber,
         tinNumber,
         grossSalary,

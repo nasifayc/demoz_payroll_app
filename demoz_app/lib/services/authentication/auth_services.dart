@@ -87,6 +87,7 @@ class AuthServices {
         CompanyModel newUser = CompanyModel(
             id: user!.uid,
             email: user.email!,
+            photo: user.photoURL,
             companyName: companyName,
             address: address,
             phoneNumber: phoneNumber,

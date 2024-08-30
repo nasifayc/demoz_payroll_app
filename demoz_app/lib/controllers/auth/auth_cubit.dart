@@ -113,8 +113,7 @@ class AuthCubit extends Cubit<AuthState> {
   void updateUser(CompanyModel company) async {
     try {
       CompanyModel? companyModel = await authServices.updateUser(company);
-      String? currentUserId = await LoginManager.getUser();
-      if (companyModel != null && companyModel.id == currentUserId) {
+      if (companyModel != null) {
         emit(Authenticated(company: companyModel));
       }
     } catch (e) {
