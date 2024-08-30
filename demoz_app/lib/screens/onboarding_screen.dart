@@ -1,4 +1,5 @@
 import 'package:demoz_app/core/theme/app_theme.dart';
+import 'package:demoz_app/widgets/onboarding/auth_box.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -8,17 +9,19 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AppTheme theme = AppTheme.of(context);
     return Scaffold(
-      backgroundColor: theme.secondary,
+      backgroundColor: theme.primary,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Center(
-              child: Image.asset(
+          Image.asset(
             "assets/images/logo.png",
             height: 185,
             width: 161,
-          )),
-          AuthBox()
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          const AuthBox()
         ],
       ),
     );

@@ -6,26 +6,26 @@ class CompanyModel extends Equatable {
   final String id;
   final String email;
   String? password;
-  String? companyName;
-  String? address;
-  String? phoneNumber;
-  String? tinNumber;
-  int? numberOfEmployees;
-  String? companyBank;
-  String? bankAccountNumber;
+  final String companyName;
+  final String address;
+  final String phoneNumber;
+  final String tinNumber;
+  final int numberOfEmployees;
+  final String companyBank;
+  final String bankAccountNumber;
   List<EmployeeModel> employees;
 
   CompanyModel(
       {required this.id,
       required this.email,
       this.password,
-      this.companyName,
-      this.address,
-      this.phoneNumber,
-      this.tinNumber,
-      this.numberOfEmployees,
-      this.companyBank,
-      this.bankAccountNumber,
+      required this.companyName,
+      required this.address,
+      required this.phoneNumber,
+      required this.tinNumber,
+      required this.numberOfEmployees,
+      required this.companyBank,
+      required this.bankAccountNumber,
       this.employees = const []});
 
   factory CompanyModel.fromJson(Map<String, dynamic> json) {

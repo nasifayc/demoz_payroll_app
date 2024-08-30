@@ -7,6 +7,7 @@ abstract class AppTypography {
   TextStyle get displayMedium;
   TextStyle get displaySmall;
   TextStyle get headlineLarge;
+  TextStyle get headlineLarge2;
   TextStyle get headlineMedium;
   TextStyle get headlineMedium2;
   TextStyle get headlineSmall;
@@ -35,7 +36,7 @@ class ThemeTypography extends AppTypography {
   final AppTheme theme;
 
   @override
-  String get fontFamily => "roboto";
+  String get fontFamily => "Lexend";
   @override
   TextStyle get displayLarge => TextStyle(
         fontFamily: fontFamily,
@@ -61,37 +62,48 @@ class ThemeTypography extends AppTypography {
   TextStyle get headlineLarge => TextStyle(
         fontFamily: fontFamily,
         color: theme.primaryText,
+        height: 1.5,
         fontWeight: FontWeight.bold,
-        fontSize: 32,
+        fontSize: 28,
+      );
+  @override
+  TextStyle get headlineLarge2 => TextStyle(
+        fontFamily: fontFamily,
+        color: theme.primary,
+        height: 1.5,
+        fontWeight: FontWeight.bold,
+        fontSize: 28,
       );
   @override
   TextStyle get headlineMedium => TextStyle(
         fontFamily: fontFamily,
-        color: theme.primaryText,
+        color: theme.info,
         fontWeight: FontWeight.bold,
-        fontSize: 26,
+        fontSize: 16,
       );
   @override
   TextStyle get headlineMedium2 => TextStyle(
-        fontFamily: fontFamily,
-        color: theme.primaryText.withOpacity(0.7),
-        fontWeight: FontWeight.normal,
-        fontSize: 18,
-      );
+      fontFamily: fontFamily,
+      color: theme.primary,
+      height: 1.5,
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      overflow: TextOverflow.ellipsis);
+
   @override
   TextStyle get headlineSmall => TextStyle(
-        fontFamily: fontFamily,
-        color: theme.primaryText,
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
-      );
+      fontFamily: fontFamily,
+      color: theme.primaryText,
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      overflow: TextOverflow.ellipsis);
   @override
   TextStyle get headlineSmall2 => TextStyle(
-        fontFamily: fontFamily,
-        color: theme.primaryText.withOpacity(0.7),
-        fontWeight: FontWeight.normal,
-        fontSize: 16,
-      );
+      fontFamily: fontFamily,
+      color: theme.primaryText.withOpacity(0.7),
+      fontWeight: FontWeight.normal,
+      fontSize: 16,
+      overflow: TextOverflow.ellipsis);
   @override
   TextStyle get titleLarge => TextStyle(
       fontFamily: fontFamily,
@@ -109,9 +121,11 @@ class ThemeTypography extends AppTypography {
   @override
   TextStyle get titleMedium => TextStyle(
       fontFamily: fontFamily,
-      color: theme.info,
+      color: theme.accent2,
+      letterSpacing: 1.2,
+      height: 1.5,
       fontWeight: FontWeight.normal,
-      fontSize: 18,
+      fontSize: 16,
       overflow: TextOverflow.ellipsis);
   @override
   TextStyle get titleMedium2 => TextStyle(
@@ -123,9 +137,11 @@ class ThemeTypography extends AppTypography {
   @override
   TextStyle get titleSmall => TextStyle(
       fontFamily: fontFamily,
-      color: theme.info,
+      color: theme.accent2,
+      letterSpacing: 1.2,
+      height: 1.5,
       fontWeight: FontWeight.normal,
-      fontSize: 16,
+      fontSize: 14,
       overflow: TextOverflow.ellipsis);
   @override
   TextStyle get titleSmall2 => TextStyle(
@@ -144,9 +160,9 @@ class ThemeTypography extends AppTypography {
   @override
   TextStyle get labelMedium => TextStyle(
       fontFamily: fontFamily,
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 16,
+      color: theme.info,
+      fontWeight: FontWeight.normal,
+      fontSize: 18,
       overflow: TextOverflow.ellipsis);
 
   @override
@@ -166,9 +182,9 @@ class ThemeTypography extends AppTypography {
   @override
   TextStyle get labelMedium2 => TextStyle(
       fontFamily: fontFamily,
-      color: theme.accent2,
-      fontWeight: FontWeight.normal,
-      fontSize: 16,
+      color: theme.secondary,
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
       overflow: TextOverflow.ellipsis);
 
   @override

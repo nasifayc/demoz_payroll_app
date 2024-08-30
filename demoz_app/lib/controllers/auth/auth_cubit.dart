@@ -33,27 +33,29 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void signUp(String email, String password) async {
+  void signUp(
+      String email,
+      String password,
+      String companyName,
+      String address,
+      String phoneNumber,
+      String tinNumber,
+      int numberOfEmployees,
+      String companyBank,
+      String bankAccount) async {
     emit(Authenticating());
-    final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-    final passwordRegex = RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$');
 
-    // Validate email format
-    if (!emailRegex.hasMatch(email)) {
-      emit(AuthFailure(message: 'Invalid email format.'));
-      return;
-    }
-
-    // Validate password (Minimum 8 characters, at least one letter and one number)
-    if (!passwordRegex.hasMatch(password)) {
-      emit(AuthFailure(
-          message:
-              'Password must be at least 8 characters long and contain both letters and numbers.'));
-      return;
-    }
     try {
-      User? user =
-          await authServices.signupWithEmailAndPassword(email, password);
+      User? user = await authServices.signupWithEmailAndPassword(
+          email,
+          password,
+          companyName,
+          address,
+          phoneNumber,
+          tinNumber,
+          numberOfEmployees,
+          companyBank,
+          bankAccount);
       if (user != null) {
         signIn(email, password);
       } else {
@@ -66,10 +68,35 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   // Google Authentication
-  void signInWithGoogle() async {
+  void signInWithGoogle(
+      String companyName,
+      String address,
+      String phoneNumber,
+      String tinNumber,
+      int numberOfEmployees,
+      String companyBank,
+      String bankAccount) async {
     emit(AuthenticatingGoogle());
     try {
-      User? user = await authServices.signinWithGoogle();
+      User? user = await authServices.signinWithGoogle(companyName, address,
+          phoneNumber, tinNumber, numberOfEmployees, companyBank, bankAccount);
+      if (user != null) {
+        CompanyModel? company = await authServices.getUser(user.uid);
+        if (company != null) {
+          emit(Authenticated(company: company));
+        } else {
+          emit(AuthFailure(message: company.toString()));
+        }
+      }
+    } catch (e) {
+      emit(AuthFailure(message: e.toString()));
+    }
+  }
+
+  void loginInWithGoogle() async {
+    emit(AuthenticatingGoogle());
+    try {
+      User? user = await authServices.loginWithGoogle();
       if (user != null) {
         CompanyModel? company = await authServices.getUser(user.uid);
         if (company != null) {
